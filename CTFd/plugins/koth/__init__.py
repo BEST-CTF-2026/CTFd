@@ -5,7 +5,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 from CTFd.models import Awards, Teams, db
 
-TARGET_URL = "http://10.0.10.10:31337/king"
+# TARGET_URL = "http://10.0.10.10:31337/king"
+TARGET_URL = "http://koth:31337/king"
 INTERVAL_SECONDS = 60
 POINTS_PER_TICK = 10
 
@@ -38,7 +39,7 @@ def poll_and_award(app):
             user_id=user_id,
             team_id=team.id,
             name="King of the Hill",
-            description=f"Controlled the hill at {datetime.datetime.utcnow().isoformat()}Z",
+            description=f"Controlled the hill",
             value=POINTS_PER_TICK,
             category="KoTH",
         ))
