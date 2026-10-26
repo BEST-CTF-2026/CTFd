@@ -15,6 +15,7 @@ services:
       - ERROR_LOG=-
       - REVERSE_PROXY=true
       - SWAGGER_UI=true
+      - KOTH_GROUPS=${KOTH_GROUPS:-4}
     volumes:
       - .data/CTFd/logs:/var/log/CTFd
       - .data/CTFd/uploads:/var/uploads
