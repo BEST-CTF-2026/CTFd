@@ -5,8 +5,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 from CTFd.models import Awards, Teams, db
 
-# One hill per group: the king box of group N is always 10.0.N0.10 (Terraform
-# private-N). KOTH_GROUPS is set by the bastion bootstrap (number of subnets).
 GROUPS = int(os.environ.get("KOTH_GROUPS", "4"))
 KOTH_PORT = int(os.environ.get("KOTH_PORT", "31337"))
 HILLS = {n: f"http://10.0.{n * 10}.10:{KOTH_PORT}/king" for n in range(1, GROUPS + 1)}
