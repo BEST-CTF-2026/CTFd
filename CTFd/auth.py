@@ -235,7 +235,7 @@ def reset_password(data=None):
 
 @auth.route("/register", methods=["POST", "GET"])
 @check_registration_visibility
-@ratelimit(method="POST", limit=10, interval=5)
+@ratelimit(method="POST", limit=500, interval=60)
 def register():
     errors = get_errors()
     if current_user.authed():
@@ -440,7 +440,7 @@ def register():
 
 
 @auth.route("/login", methods=["POST", "GET"])
-@ratelimit(method="POST", limit=10, interval=5)
+@ratelimit(method="POST", limit=500, interval=60)
 def login():
     errors = get_errors()
     if request.method == "POST":
